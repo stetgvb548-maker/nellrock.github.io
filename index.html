@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligence Research Specialist Portfolio</title>
+    <style>
+        :root {
+            --primary: #0f172a; /* Dark Slate */
+            --secondary: #1e293b; /* Lighter Slate */
+            --accent: #d4af37; /* Metallic Gold */
+            --text-light: #f8fafc;
+            --text-gray: #94a3b8;
+            --success: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--primary);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(15, 23, 42, 0.95);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--secondary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--accent);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+            background: radial-gradient(circle at center, var(--secondary) 0%, var(--primary) 100%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero span {
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 800px;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            padding: 1rem 2rem;
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        /* Sections General */
+        section {
+            padding: 5rem 10%;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            border-left: 4px solid var(--accent);
+            padding-left: 1rem;
+        }
+
+        /* Experience Timeline */
+        .timeline-item {
+            background: var(--secondary);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+            border-left: 2px solid var(--text-gray);
+            transition: transform 0.3s;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+            border-left: 2px solid var(--accent);
+        }
+
+        .timeline-date {
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .timeline-role {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-org {
+            color: var(--text-gray);
+            font-style: italic;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Grid for Skills */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--secondary);
+            padding: 2rem;
+            border-radius: 4px;
+            border-top: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            border-top: 3px solid var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .card ul {
+            list-style-type: none;
+        }
+
+        .card li {
+            margin-bottom: 0.5rem;
+            color: var(--text-gray);
+            display: flex;
+            align-items: center;
+        }
+
+        .card li::before {
+            content: "▹";
+            color: var(--accent);
+            margin-right: 10px;
+        }
+
+        /* Stats Section */
+        .stats-bar {
+            display: flex;
+            justify-content: space-around;
+            background: var(--secondary);
+            padding: 3rem 10%;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+            margin: 1rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* Contact */
+        .contact-area {
+            text-align: center;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-gray);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--secondary);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav { padding: 1rem; }
+            section { padding: 3rem 5%; }
+            .nav-links { display: none; } /* Simplified for demo */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Intel<span style="color:white">Research</span></div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#expertise">Expertise</a>
+            <a href="#training">Training</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Safeguarding the Homeland <br> Through <span>Strategic Analysis</span></h1>
+        <p>Analytical. Dedicated. Resourceful. <br>
+        19+ Years of Intelligence Experience identifying threats, analyzing illicit motives, and securing the nation.</p>
+        <a href="#experience" class="cta-button">View Mission History</a>
+    </section>
+
+    <div class="stats-bar">
+        <div class="stat">
+            <div class="stat-number">15</div>
+            <div class="stat-label">Years Federal Service</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">4</div>
+            <div class="stat-label">Years U.S. Army</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">1</div>
+            <div class="stat-label">Combat Deployment</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">∞</div>
+            <div class="stat-label">Training Hours</div>
+        </div>
+    </div>
+
+    <section id="experience">
+        <h2>Professional Experience</h2>
+        
+        <div class="timeline-item">
+            <span class="timeline-date">2008 - Present (15 Years)</span>
+            <h3 class="timeline-role">Intelligence Research Specialist</h3>
+            <span class="timeline-org">U.S. Federal Government</span>
+            <p style="color: var(--text-gray)">
+                Specializing in homeland security threats, illicit actor psychology, and counter-trafficking operations.
+            </p>
+            <br>
+            <ul>
+                <li style="color: var(--text-gray); margin-bottom: 5px;">• Analyzed and reported on smuggling routes for narcotics and human trafficking operations.</li>
+                <li style="color: var(--text-gray); margin-bottom: 5px;">• Investigated motives of illicit actors to predict and prevent future threats.</li>
+                <li style="color: var(--text-gray); margin-bottom: 5px;">• Authored high-level reports on border security, immigration administration, and law enforcement protocols.</li>
+                <li style="color: var(--text-gray); margin-bottom: 5px;">• Provided critical briefings to leadership regarding watchlist additions and emerging threats.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <span class="timeline-date">2004 - 2008 (4 Years)</span>
+            <h3 class="timeline-role">Intelligence Analyst</h3>
+            <span class="timeline-org">U.S. Army</span>
+            <p style="color: var(--text-gray)">
+                Provided tactical intelligence support during combat operations.
+            </p>
+            <br>
+            <ul>
+                <li style="color: var(--text-gray); margin-bottom: 5px;">• Deployed to Iraq in support of Operation Iraqi Freedom.</li>
+                <li style="color: var(--text-gray); margin-bottom: 5px;">• Processed all-source intelligence to support mission planning and force protection.</li>
+                <li style="color: var(--text-gray); margin-bottom: 5px;">• Maintained security clearance and handled classified material with strict adherence to protocol.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="expertise">
+        <h2>Core Competencies</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Threat Analysis</h3>
+                <ul>
+                    <li>Counterterrorism Operations</li>
+                    <li>Illicit Actor Motive Assessment</li>
+                    <li>Smuggling Route Identification</li>
+                    <li>Security Priority Identification</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Communication</h3>
+                <ul>
+                    <li>Leadership Briefings</li>
+                    <li>Watchlist Recommendations</li>
+                    <li>Strategic Report Writing</li>
+                    <li>Public Speaking</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Strategic Planning</h3>
+                <ul>
+                    <li>DHS Mission Execution</li>
+                    <li>Policy Administration</li>
+                    <li>Border Security Strategy</li>
+                    <li>Law Enforcement Support</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="training" style="background: var(--secondary);">
+        <h2>Continuous Development</h2>
+        <p style="color: var(--text-gray); margin-bottom: 2rem;">
+            I actively seek new training opportunities within the Department of Homeland Security (DHS) to master emerging skillsets and stay ahead of adversaries.
+        </p>
+        <div class="grid-container">
+            <div class="card" style="background: var(--primary);">
+                <h3>Emerging TTPs</h3>
+                <p style="color: var(--text-gray); font-size: 0.9rem;">
+                    Constant study of the Tactics, Techniques, and Procedures used by criminals and suspected terrorists to adapt defense strategies.
+                </p>
+            </div>
+            <div class="card" style="background: var(--primary);">
+                <h3>Strategic Goals</h3>
+                <p style="color: var(--text-gray); font-size: 0.9rem;">
+                    Aligning intelligence gathering with the broader missions and goals of DHS to ensure effective execution of federal law.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-area">
+        <h2>Ready to Serve</h2>
+        <p style="color: var(--text-gray); margin-bottom: 2rem;">
+            I am prepared to bring 19 years of analytical rigor and dedication to your organization.
+        </p>
+        <a href="mailto:your.email@example.com" class="cta-button">Contact Me</a>
+    </section>
+
+    <footer>
+        <p>© 2024 Intelligence & Strategic Analysis Portfolio. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling script
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Simple Reveal Animation on Scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.timeline-item, .card').forEach(el => {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(20px)";
+            el.style.transition = "all 0.6s ease-out";
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
